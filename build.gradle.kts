@@ -13,9 +13,11 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
+	jcenter() //  only needed for the Apollo Federation on the JVM library,
 }
 
 dependencies {
+	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:3.0.10")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
