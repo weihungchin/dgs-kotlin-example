@@ -1,25 +1,23 @@
 package com.example.kotlinDgsExample.datafetcher
 
+import com.example.kotlinDgsExample.service.ShowsService
 import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsData
 import com.netflix.graphql.dgs.InputArgument
+import org.springframework.beans.factory.annotation.Autowired
 
 
 @DgsComponent
 class ShowsDataFetcher {
-    private val shows = listOf(
-            Show("Stranger Things", 2016),
-            Show("Ozark", 2017),
-            Show("The Crown", 2016),
-            Show("Dead to Me", 2019),
-            Show("Orange is the New Black", 2013))
+    @Autowired
+    lateinit var showsService: ShowsService
 
     @DgsData(parentType = "Query", field = "shows")
     fun shows(@InputArgument("titleFilter") titleFilter : String?): List<Show> {
         return if(titleFilter != null) {
-            shows.filter { it.title.contains(titleFilter) }
+            showsService.shows().filter { it.title.contains(titleFilter) }
         } else {
-            shows
+            showsService.shows()
         }
     }
 
