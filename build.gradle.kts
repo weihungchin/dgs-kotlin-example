@@ -10,7 +10,7 @@ plugins {
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_13
 
 repositories {
 	mavenCentral()
@@ -20,7 +20,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.postgresql:postgresql")
-	implementation ("org.flywaydb:flyway-core:6.4.3")
+	implementation ("org.flywaydb:flyway-core:7.5.2")
 	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:3.0.10")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -45,3 +45,19 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+//buildscript {
+//	dependencies {
+//		classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
+//	}
+//}
+//
+//apply plugin: "kotlin-jpa"
+
+buildscript {
+	dependencies {
+		classpath("org.jetbrains.kotlin:kotlin-noarg:1.4.30")
+	}
+}
+
+apply(plugin = "kotlin-jpa")

@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class SampleController {
+
     @RequestMapping("/api/greet")
     fun helloWorld(@RequestParam name: String): String {
         return "hello $name"
+    }
+
+    @RequestMapping("/api/account")
+    fun getSampleAccount(): String {
+        return "";
     }
 }
