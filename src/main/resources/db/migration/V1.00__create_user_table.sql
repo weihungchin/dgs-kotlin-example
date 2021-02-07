@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS accounts (
+    id UUID NOT NULL,
+    name VARCHAR(255) NULL,
+    PRIMARY KEY (id)
+);
