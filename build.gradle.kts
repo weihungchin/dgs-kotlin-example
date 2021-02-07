@@ -18,6 +18,9 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.postgresql:postgresql")
+	implementation ("org.flywaydb:flyway-core:6.4.3")
 	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:3.0.10")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
